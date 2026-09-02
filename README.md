@@ -1,205 +1,189 @@
-# Wanderly
+<div align="center">
 
-**Go somewhere worth remembering.**
+# 🧭 Wanderly
 
-Wanderly is a travel discovery web application built in React. It pairs a
-curated, editorial guide to twelve destinations with live data: real-time
-weather for any point on Earth, dynamically fetched photography, an AI travel
-concierge, and an AI itinerary generator that renders real day-by-day plans —
-not walls of chat text.
+### *Go somewhere worth remembering.*
 
-Built as a Front-End Developer assessment for **Design Esthetics** (via TAP
-Academy).
+A premium travel discovery app — curated destinations, live weather,
+dynamic photography, an AI travel concierge, and structured day-by-day
+AI itineraries. Built in React.
 
-![Landing page](screenshots/home-hero.png)
+<br/>
+
+**[🌍 View the Live Site](https://anushamamidiece-max.github.io/wanderly/)** &nbsp;·&nbsp;
+**[📦 Source Code](https://github.com/anushamamidiece-max/wanderly)**
+
+<br/>
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white&labelColor=20232a)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white&labelColor=20232a)
+![React Router](https://img.shields.io/badge/React_Router-6-CA4245?logo=reactrouter&logoColor=white&labelColor=20232a)
+![CSS](https://img.shields.io/badge/CSS-hand--built_design_system-264de4?logo=css3&logoColor=white&labelColor=20232a)
+![Gemini](https://img.shields.io/badge/AI-Google_Gemini-4285F4?logo=google&logoColor=white&labelColor=20232a)
+![Deployed](https://img.shields.io/badge/Deployed-GitHub_Pages-222?logo=github&logoColor=white)
+
+<br/>
+
+<img src="screenshots/home-hero.png" alt="Wanderly landing page — cinematic video hero" width="850"/>
+
+</div>
 
 ---
 
-## Features
+## ✨ What it does
 
-- **Cinematic landing page** — full-viewport looping background video
-  (free-licence footage streamed from the Pexels CDN, with a graceful
-  photographic fallback if the video cannot load).
-- **Destination explorer** — browse 12 curated destinations; live search
-  (case-insensitive, partial matches) plus region, travel-style and
-  trip-length filters that genuinely narrow the results. Designed empty state
-  with a one-click reset.
-- **Destination detail pages** — an editorial page per destination with
-  cinematic header, quick facts (best time, suggested stay, style), live
-  weather, famous places and the AI concierge. Routed with React Router;
-  unknown ids get a designed 404.
-- **Famous places** — visual cards (photo, description, category, visit
-  duration, "must see" badge). Photos are fetched dynamically from the
-  Wikipedia REST API, so each card shows the actual landmark.
-- **Location awareness** — "Use my location" triggers browser geolocation
-  *only on click* (no permission ambush), reverse-geocodes the coordinates to
-  a city name, and shows live local weather. Denied permission is a designed
-  state — and a **manual city search** (Open-Meteo geocoding) works with or
-  without permission.
-- **Real-time weather** — temperature, condition, feels-like, humidity and
-  wind for the visitor's location and for every destination. Uses OpenWeather
-  when a key is configured and transparently falls back to the keyless
-  Open-Meteo API otherwise, so the live demo never breaks.
-- **AI travel concierge** — a Google Gemini-powered chat that knows which
-  destination you are reading about. Suggested prompts, typing indicator,
-  error state, keyboard accessible, `aria-live` conversation log.
-- **AI itinerary generator** — choose destination, days (2–7), travel styles
-  and interests; Gemini returns strict JSON which is validated and rendered
-  as a structured plan: DayCard → Morning / Afternoon / Evening blocks with
-  activity, description, duration and category. Malformed AI output is
-  caught; without an API key a clearly-labelled sample plan is built from the
-  guide data (the app never fakes an AI response).
-- **Designed states everywhere** — loading skeletons and spinners, empty
-  results, failed requests with retry, denied location, image fallbacks, 404.
-- **Responsive** — intentional layouts from 320 px phones to large desktops:
-  collapsible menu, filter drawer, stacked grids, sticky planner form.
-- **Accessible** — semantic landmarks and headings, labelled inputs, alt
-  text, visible focus rings, skip-to-content link, keyboard-only usable,
-  `prefers-reduced-motion` respected.
+Wanderly was built as a Front-End Developer assessment for **Design
+Esthetics** (via TAP Academy) — a travel product that feels like a travel
+magazine, not a booking site.
 
-| Explorer | Detail page | Itinerary |
-| --- | --- | --- |
+| | Feature | Details |
+|---|---|---|
+| 🎬 | **Cinematic landing** | Full-viewport looping background video (Pexels CDN, free licence) with graceful photo fallback, scroll cue, and a navbar that turns solid on scroll |
+| 🗺️ | **Destination explorer** | 12 curated destinations · live search (case-insensitive, partial match) · region / travel-style / trip-length filters · designed empty state with one-click reset |
+| 📖 | **Editorial detail pages** | Routed with React Router (`/destination/:id`) — cinematic header, quick facts, live weather, famous places, AI concierge. Unknown ids → designed 404 |
+| 🏛️ | **Famous places** | Visual cards (photo · description · category · visit time · "must see" badge). Photos fetched **dynamically from the Wikipedia REST API** — always the real landmark |
+| 📍 | **Location awareness** | Geolocation requested **only on click** (no permission ambush) → reverse-geocoded to a city name → live local weather. Denied permission is a *designed state*, and manual city search works either way |
+| 🌦️ | **Real-time weather** | Temperature, condition, feels-like, humidity, wind — OpenWeather when a key exists, transparent fallback to keyless Open-Meteo, one normalised shape |
+| 🤖 | **AI concierge** | Gemini-powered chat that knows which destination you're reading — suggested prompts, typing indicator, error states, `aria-live` log |
+| 📅 | **AI itinerary generator** | Destination + days (2–7) + styles + interests → Gemini returns strict JSON → **validated** → rendered as Day → Morning / Afternoon / Evening cards. Never a wall of chat text |
+| 🧯 | **Designed failure states** | Loading skeletons, empty results, failed requests with retry, denied location, image fallbacks, 404 — every state is designed, not accidental |
+| 📱 | **Responsive** | Intentional layouts from 320 px to large desktop — collapsible menu, filter drawer, sticky planner form |
+| ♿ | **Accessible** | Semantic landmarks, labelled inputs, alt text, visible focus rings, skip link, keyboard-only usable, `prefers-reduced-motion` respected |
+
+---
+
+## 📸 Screenshots
+
+| Explorer | Destination page | AI itinerary |
+|:---:|:---:|:---:|
 | ![Explore](screenshots/explore.png) | ![Detail](screenshots/detail-hero.png) | ![Itinerary](screenshots/planner-itinerary.png) |
 
-| Famous places | Live weather | Chat concierge |
-| --- | --- | --- |
+| Famous places | Live weather (my location) | AI concierge |
+|:---:|:---:|:---:|
 | ![Places](screenshots/detail-places.png) | ![Weather](screenshots/weather-located.png) | ![Chat](screenshots/detail-chat.png) |
 
-| Mobile | Location denied | Empty state |
-| --- | --- | --- |
+| Mobile | Location denied (designed) | Empty state (designed) |
+|:---:|:---:|:---:|
 | ![Mobile](screenshots/mobile-home.png) | ![Denied](screenshots/location-denied.png) | ![Empty](screenshots/explore-empty.png) |
 
 ---
 
-## Tech stack
+## 🔌 APIs
 
-- **React 18** + **Vite** — SPA with **React Router 6**
-- **JavaScript (ES2022)**, **HTML**, **CSS** — no UI framework, no Bootstrap,
-  no Tailwind; a hand-built design system on CSS custom properties
-  (colour, type, spacing, radius, shadow and motion scales in
-  `src/styles/variables.css`)
-- **Fonts** — Fraunces (display serif) + Inter (text), via Google Fonts
-
-## APIs used
+Every integration lives in its own service module (`src/services/`) and is
+normalised to one shape — components never know which provider answered.
+**Every feature has a keyless fallback**, so a missing key degrades one
+feature gracefully instead of breaking the page.
 
 | Purpose | Primary | Keyless fallback |
-| --- | --- | --- |
-| Weather | [OpenWeather](https://openweathermap.org/) (`VITE_OPENWEATHER_API_KEY`) | [Open-Meteo](https://open-meteo.com/) |
-| Place photos | [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/) (keyless) | designed placeholder |
-| Destination covers | [Unsplash API](https://unsplash.com/developers) (`VITE_UNSPLASH_ACCESS_KEY`, optional) | curated Unsplash CDN photos |
-| AI chat + itineraries | [Google Gemini](https://ai.google.dev/) (`VITE_GEMINI_API_KEY`) | labelled offline guide mode |
-| Geocoding (city search) | Open-Meteo Geocoding (keyless) | — |
-| Reverse geocoding | BigDataCloud client API (keyless) | — |
+|---|---|---|
+| Weather | [OpenWeather](https://openweathermap.org/) | [Open-Meteo](https://open-meteo.com/) |
+| Place photos | [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/) *(keyless)* | designed placeholder |
+| Destination covers | [Unsplash API](https://unsplash.com/developers) *(optional)* | curated Unsplash CDN |
+| AI chat + itineraries | [Google Gemini](https://ai.google.dev/) | labelled offline guide mode |
+| City search | Open-Meteo Geocoding *(keyless)* | — |
+| Reverse geocoding | BigDataCloud *(keyless)* | — |
 | Geolocation | Browser Geolocation API | manual city search |
-| Hero video | Pexels video CDN (free licence) | poster photograph |
 
-Every provider response is normalised in a service module
-(`src/services/`), so components never know or care which API answered.
+---
 
-## Getting started
+## 🚀 Getting started
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/anushamamidiece-max/wanderly.git
 cd wanderly
 npm install
-cp .env.example .env      # then add your keys (see below)
-npm run dev
+cp .env.example .env      # add your keys (optional — see below)
+npm run dev               # → http://localhost:5173
 ```
 
-The app runs immediately **without any keys** — weather comes from
-Open-Meteo, photos from Wikipedia/Unsplash CDN, and the AI features switch to
-a clearly-labelled offline guide mode. Add keys to unlock the full
-experience.
+> 💡 The app runs **without any keys** — weather via Open-Meteo, photos via
+> Wikipedia, and the AI switches to a clearly-labelled offline guide mode.
 
-## Environment variables
+### Environment variables
 
-| Variable | Required for | Where to get it |
-| --- | --- | --- |
+| Variable | Unlocks | Get it at |
+|---|---|---|
 | `VITE_GEMINI_API_KEY` | AI chat + AI itineraries | [Google AI Studio](https://aistudio.google.com/apikey) |
-| `VITE_OPENWEATHER_API_KEY` | OpenWeather as weather source (optional) | [openweathermap.org](https://openweathermap.org/api) |
-| `VITE_UNSPLASH_ACCESS_KEY` | Fresh Unsplash destination covers (optional) | [unsplash.com/developers](https://unsplash.com/developers) |
+| `VITE_OPENWEATHER_API_KEY` | OpenWeather as weather source *(optional)* | [openweathermap.org](https://openweathermap.org/api) |
+| `VITE_UNSPLASH_ACCESS_KEY` | Fresh Unsplash covers *(optional)* | [unsplash.com/developers](https://unsplash.com/developers) |
 
-`.env` is git-ignored; `.env.example` documents the shape. **No keys are
-committed to this repository.**
+`.env` is git-ignored — **no keys are committed to this repository.**
 
-### An honest note on client-side keys
+> **An honest note on client-side keys:** `VITE_` variables are embedded in
+> the shipped bundle, so they are visible in dev tools. Keys stay out of
+> git (easy rotation, no GitHub scraping), but a production build would move
+> AI/weather calls behind a small serverless proxy. For this assessment the
+> practical setup is restricted free-tier keys plus keyless fallbacks.
 
-`VITE_`-prefixed variables are embedded in the shipped JavaScript bundle —
-that is how Vite works, and it means the keys are visible to anyone who opens
-dev tools. Keys are still kept out of the repository (rotation stays easy,
-scrapers don't harvest them from GitHub), but for a production product the AI
-and weather calls would move behind a small serverless proxy so the keys
-never reach the browser. For this assessment the safest practical setup is
-restricted free-tier keys (Gemini keys can be HTTP-referrer-restricted in
-Google Cloud) — plus keyless fallbacks so nothing depends on a secret.
+---
 
-## Deployment
+## 🌐 Deployment
 
-Deployed on **GitHub Pages** from the `gh-pages` branch: the production
-bundle is built with `--base=/wanderly/` and pushed with a `404.html` copy of
-`index.html` so deep links like `/wanderly/destination/kyoto` survive a
-refresh. The app also deploys unchanged to Vercel or Netlify (`vercel.json`
-already provides SPA rewrites).
+Live on **GitHub Pages** from the `gh-pages` branch:
 
 ```bash
-npm run build        # production build → dist/
+npm run build -- --base=/wanderly/   # production build with Pages base path
+# dist/index.html is copied to dist/404.html so deep links
+# like /wanderly/destination/kyoto survive a refresh
 ```
 
-## Project structure
+The app also deploys unchanged to **Vercel / Netlify** — `vercel.json`
+already provides the SPA rewrites.
+
+---
+
+## 🗂️ Project structure
 
 ```
 src/
-  components/     Navbar, Hero, DestinationCard, FamousPlaceCard, SearchBar,
-                  FilterBar, WeatherCard, WeatherIcon, LocationPanel,
-                  Chatbot, Itinerary, SmartImage, Reveal, States
-  pages/          Home, Explore, DestinationDetail, Planner, NotFound
-  context/        LocationContext (shared "where is the traveller?" state)
-  hooks/          useWeather
-  services/       weatherService, imageService, aiService, locationService
-  data/           destinations.js (curated guide dataset)
-  styles/         variables.css, globals.css, components.css, pages.css
+├── components/    Navbar · Hero · DestinationCard · FamousPlaceCard · SearchBar
+│                  FilterBar · WeatherCard · WeatherIcon · LocationPanel
+│                  Chatbot · Itinerary · SmartImage · Reveal · States
+├── pages/         Home · Explore · DestinationDetail · Planner · NotFound
+├── context/       LocationContext — shared "where is the traveller?" state
+├── hooks/         useWeather — loading / data / error for any coordinates
+├── services/      weatherService · imageService · aiService · locationService
+├── data/          destinations.js — curated 12-destination guide dataset
+└── styles/        variables.css · globals.css · components.css · pages.css
 ```
 
-## Design decisions & challenges
+---
 
-- **Editorial, not booking-site.** Warm paper background, deep pine and
-  terracotta, a display serif for headlines, hairline rules, uppercase
-  eyebrows and generous whitespace — closer to a travel magazine than a
-  generic card dashboard.
-- **Fallback-first API architecture.** Every integration has a keyless path,
-  so a missing or failing key degrades one feature gracefully instead of
-  breaking the page. The weather service normalises two providers into one
-  shape; the UI cannot tell them apart.
-- **Wikipedia as an image source.** Landmark searches on stock-photo APIs
-  often return the wrong landmark. The Wikipedia REST API returns the lead
-  photo of the actual article — accurate by construction. Two articles whose
-  lead image is a logo (Eiffel Tower, Vatican Museums) are pinned to curated
-  photos in the dataset. Wikimedia only serves fixed thumbnail widths, so the
-  service upgrades to the largest valid bucket below the original size.
-- **AI output you can render.** Gemini is asked for strict JSON, which is
-  parsed defensively (code-fence stripping, brace extraction) and validated
-  field-by-field before it reaches the UI. If validation fails, the user
-  gets a designed error — never a broken screen or raw model text.
-- **Honest offline mode.** Without a Gemini key the app does not pretend to
-  be an AI: chat answers come from the guide dataset and are labelled, and
-  itineraries carry a "sample plan (offline mode)" badge.
-- **Motion with intent.** One reveal-on-scroll pattern (IntersectionObserver),
-  restrained hovers, and full `prefers-reduced-motion` support.
+## 🎨 Design decisions
 
-## Accessibility
+- **Editorial, not booking-site** — warm paper, deep pine + terracotta,
+  display serif headlines, hairline rules, uppercase eyebrows, whitespace.
+  The whole design system is CSS custom properties in `variables.css`.
+- **Wikipedia as an image source** — stock-photo searches often return the
+  wrong landmark; the Wikipedia article's lead photo is correct by
+  construction. (Two articles lead with logos — Eiffel Tower, Vatican
+  Museums — so those pin curated photos. Wikimedia serves only fixed
+  thumbnail widths, so the service picks the largest valid bucket.)
+- **AI output you can render** — Gemini is asked for strict JSON, parsed
+  defensively (fence-stripping, brace extraction) and validated field by
+  field before it touches the UI. Malformed output → designed error.
+- **Honest offline mode** — without a key the app never fakes AI: chat
+  answers come from the guide dataset and itineraries carry a
+  *"sample plan (offline mode)"* badge.
+- **Motion with intent** — one IntersectionObserver reveal pattern,
+  restrained hovers, full `prefers-reduced-motion` support.
 
-Semantic landmarks (`header/nav/main/section/footer`), one logical heading
-hierarchy per page, real `<button>`/`<Link>` elements (no clickable divs),
-labelled form controls, alt text on all imagery, visible `:focus-visible`
-rings, a skip-to-content link, `aria-live` regions for chat and async
-results, `aria-pressed` on filter chips and `aria-expanded` on disclosure
-toggles. Body text sits on warm paper at WCAG-AA-or-better contrast.
+---
 
-## Future improvements
+## 🔮 Future improvements
 
-- Move AI/weather calls behind a serverless proxy (Vercel Functions) so keys
-  never ship to the browser
-- Save generated itineraries (localStorage, then accounts) and export to PDF
-- A 5-day forecast strip on destination pages
-- Streaming chat responses for a more conversational feel
+- Serverless proxy for AI/weather calls so keys never ship to the browser
+- Save itineraries (localStorage → accounts) and export to PDF
+- 5-day forecast strip on destination pages
+- Streaming chat responses
 - Unit tests for the itinerary validator and search/filter logic
+
+---
+
+<div align="center">
+
+Built with care as an original implementation for the Design Esthetics
+front-end assessment — **[open the live site →](https://anushamamidiece-max.github.io/wanderly/)**
+
+</div>
