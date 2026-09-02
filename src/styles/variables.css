@@ -1,0 +1,59 @@
+/* ==========================================================
+   Wanderly design tokens.
+   Every repeated design value lives here so the whole app
+   can be re-tuned from one file.
+   ========================================================== */
+:root {
+  /* Colour — warm paper + deep pine + terracotta accent */
+  --paper: #f6f2ea;
+  --paper-2: #efe9dd;
+  --card: #fffdf8;
+  --ink: #1c221f;
+  --ink-2: #4a554f;
+  --ink-3: #7b857f;
+  --line: #e1dacb;
+  --line-strong: #cfc6b2;
+  --pine: #16302b;
+  --pine-2: #1e3d36;
+  --pine-ink: #dfe8e2;
+  --pine-muted: #9db4aa;
+  --accent: #c15b2e;
+  --accent-deep: #9c4523;
+  --accent-soft: #f3e2d6;
+  --danger: #a63d2f;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+  --s-9: 7rem;
+
+  /* Radius scale — restrained, editorial */
+  --r-1: 3px;
+  --r-2: 8px;
+  --r-3: 14px;
+
+  /* Shadow scale */
+  --shadow-1: 0 1px 2px rgba(28, 34, 31, 0.06);
+  --shadow-2: 0 6px 24px -8px rgba(28, 34, 31, 0.16);
+  --shadow-3: 0 18px 50px -12px rgba(28, 34, 31, 0.28);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-slow: 700ms;
+
+  /* Layout */
+  --container: 1200px;
+  --nav-h: 72px;
+}
