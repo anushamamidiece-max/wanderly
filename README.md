@@ -10,8 +10,8 @@ AI itineraries. Built in React.
 
 <br/>
 
-**[🌍 View the Live Site](https://anushamamidiece-max.github.io/wanderly/)** &nbsp;·&nbsp;
-**[📦 Source Code](https://github.com/anushamamidiece-max/wanderly)**
+**[🌍Hello, View the Live Site ](https://anushamamidiece-max.github.io/wanderly/)** &nbsp;·&nbsp;
+**[📦Hello, Source Code ](https://github.com/anushamamidiece-max/wanderly)**
 
 <br/>
 
